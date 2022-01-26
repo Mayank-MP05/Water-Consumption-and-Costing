@@ -46,7 +46,7 @@ def main():
             debug("cost_ADD_GUEST",cost_ADD_GUEST)
             net_water_consumed += water_ADD_GUEST
             cost_of_water_consumed += cost_ADD_GUEST
-            print(int(net_water_consumed),int(cost_of_water_consumed))
+            print(round(net_water_consumed),round(cost_of_water_consumed))
             break
 
 if __name__ == "__main__":

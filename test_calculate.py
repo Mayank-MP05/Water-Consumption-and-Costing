@@ -8,7 +8,7 @@ class UnitTestCase(unittest.TestCase):
     def test_ALLOT_WATER(self):
         consumption,cost = calculate_for_allot_water(2,0.5)
         self.assertEqual(consumption,900)
-        self.assertEqual(int(cost),1200)
+        self.assertEqual(round(cost),1200)
         
         consumption,cost = calculate_for_allot_water(3,2.0)
         self.assertEqual(consumption,1500)

@@ -1,4 +1,11 @@
+import math
 from constant import daily_use_per_person,no_of_peoples_2BHK,no_of_peoples_3BHK,no_of_days_in_month,corporation_rate_per_ltr,borewell_rate_per_ltr
+from debugger import debug
+
+def round(no):
+    value_after_decimal = no - int(no)
+    if(value_after_decimal >= 0.5): return int(no) + 1
+    return int(no)
 
 def calculate_for_allot_water(apartment_type,corporation_to_bore_ration):
     """[summary] - Return the Net Water consumed and Associated Cost with it 
@@ -22,8 +29,9 @@ def calculate_for_allot_water(apartment_type,corporation_to_bore_ration):
     
     # Cost Calculation
     cost_factor_bore = corporation_to_bore_ration / (1 + corporation_to_bore_ration)
-    take_from_coporation = net_water_litres * cost_factor_bore
-    take_from_borewell = net_water_litres * (1 - cost_factor_bore)
-    
-    net_cost_in_rs = (take_from_coporation * corporation_rate_per_ltr) + (take_from_borewell * borewell_rate_per_ltr)
+    take_from_coporation = round(net_water_litres * cost_factor_bore)
+    take_from_borewell = round(net_water_litres * (1 - cost_factor_bore))
+    debug(take_from_coporation,take_from_borewell)
+    debug(take_from_coporation * corporation_rate_per_ltr,round(take_from_borewell * borewell_rate_per_ltr))
+    net_cost_in_rs = round(take_from_coporation * corporation_rate_per_ltr) + round(take_from_borewell * borewell_rate_per_ltr)
     return net_water_litres,net_cost_in_rs
