@@ -1,5 +1,4 @@
 import unittest
-import math
 
 from fn_add_guest import calculate_for_add_guests
 from fn_allot_water import calculate_for_allot_water
