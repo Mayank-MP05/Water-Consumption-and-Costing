@@ -21,8 +21,9 @@ def calculate_for_allot_water(apartment_type,corporation_to_bore_ration):
         net_water_litres = daily_use_per_person * no_of_peoples_3BHK * no_of_days_in_month
     
     # Cost Calculation
-    take_from_coporation = net_water_litres * corporation_to_bore_ration
-    take_from_borewell = net_water_litres * (1 - corporation_to_bore_ration)
+    cost_factor_bore = corporation_to_bore_ration / (1 + corporation_to_bore_ration)
+    take_from_coporation = net_water_litres * cost_factor_bore
+    take_from_borewell = net_water_litres * (1 - cost_factor_bore)
     
     net_cost_in_rs = (take_from_coporation * corporation_rate_per_ltr) + (take_from_borewell * borewell_rate_per_ltr)
     return net_water_litres,net_cost_in_rs
