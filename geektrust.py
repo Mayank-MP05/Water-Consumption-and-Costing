@@ -1,3 +1,4 @@
+from debugger import debug
 import sys
 
 from constant import ALLOT_WATER
@@ -20,7 +21,7 @@ def main():
             apartment_type = int(parsed_commands_with_args[1])
             ratio_extraction_string = parsed_commands_with_args[2].split(":")
             corporation_to_bore_ration = int(ratio_extraction_string[0])/int(ratio_extraction_string[1])
-            print(corporation_to_bore_ration)
+            debug(corporation_to_bore_ration)
 
         
 
