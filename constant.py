@@ -3,7 +3,7 @@ ADD_GUESTS = "ADD_GUESTS"
 BILL = "BILL"
 
 # Debug Mode Representation for conditional logs printing 
-DEBUG_MODE = False
+DEBUG_MODE = True
 
 # Unit Rate of Water from diff entities
 corporation_rate_per_ltr = 1.0
