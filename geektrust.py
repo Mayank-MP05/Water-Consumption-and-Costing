@@ -18,6 +18,8 @@ def main():
 
     while True:
         command = opened_file_ptr.readline()
+        # FIXME: Removing newline from raw readline
+        command = command.replace("\n", "")
         if not command:
             break
         parsed_commands_with_args = command.split(" ")
@@ -46,7 +48,6 @@ def main():
             cost_of_water_consumed += cost_ADD_GUEST
             print(int(net_water_consumed),int(cost_of_water_consumed))
             break
-            
 
 if __name__ == "__main__":
     main()
