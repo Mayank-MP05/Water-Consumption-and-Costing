@@ -5,6 +5,7 @@ from constant import ALLOT_WATER,ADD_GUESTS,BILL
 
 # Cost and Consumption calculations functions
 from fn_allot_water import calculate_for_allot_water
+from fn_add_guest import calculate_for_add_guests
 
 def main():
     input_file = sys.argv[1]
@@ -12,12 +13,15 @@ def main():
 
     net_water_consumed = 0
     cost_of_water_consumed = 0
+    
+    no_of_guests = 0
 
     while True:
         command = opened_file_ptr.readline()
         if not command:
             break
         parsed_commands_with_args = command.split(" ")
+        debug("parsed_commands_with_args: ",parsed_commands_with_args)
         command_alias = parsed_commands_with_args[0]
         
         if( command_alias == ALLOT_WATER ):
@@ -28,11 +32,20 @@ def main():
             water_ALLOT_WATER,cost_ALLOT_WATER = calculate_for_allot_water(apartment_type,corporation_to_bore_ration)
             net_water_consumed += water_ALLOT_WATER
             cost_of_water_consumed += cost_ALLOT_WATER
+            debug("water_ALLOT_WATER",water_ALLOT_WATER)
+            debug("cost_ALLOT_WATER",cost_ALLOT_WATER)
         elif( command_alias == ADD_GUESTS ):
-            
-            pass
+            # Just Keep on counting net No Of Guest don't calculate values each time
+            no_of_guests += int(parsed_commands_with_args[1])
         elif( command_alias == BILL):
-            pass
+            # Calculate and Print Net Cost and Consumption
+            water_ADD_GUEST,cost_ADD_GUEST = calculate_for_add_guests(no_of_guests)
+            debug("water_ADD_GUEST",water_ADD_GUEST)
+            debug("cost_ADD_GUEST",cost_ADD_GUEST)
+            net_water_consumed += water_ADD_GUEST
+            cost_of_water_consumed += cost_ADD_GUEST
+            print(int(net_water_consumed),int(cost_of_water_consumed))
+            break
             
 
 if __name__ == "__main__":

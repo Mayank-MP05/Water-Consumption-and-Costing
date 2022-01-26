@@ -14,3 +14,5 @@ daily_use_per_person = 10
 no_of_days_in_month = 30
 no_of_peoples_2BHK = 3
 no_of_peoples_3BHK = 5
+
+monthly_use_per_person = daily_use_per_person * no_of_days_in_month
