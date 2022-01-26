@@ -1,0 +1,1 @@
+python -m geektrust ./sample_input.txt
